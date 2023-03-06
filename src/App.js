@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { useEffect } from "react";
 
-function App() {
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+
+const Intro = React.lazy(() => import("./pages/intro/Intro"));
+const Home = React.lazy(() => import("./pages/home/Home"));
+const ECG = React.lazy(() => import("./pages/ecg/ECG"));
+const About = React.lazy(() => import("./pages/About"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+
+export default function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.group("App");
+    console.log(location.pathname);
+    console.groupEnd("App");
+
+    // if (location.pathname === "/") navigate("/intro");
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Home title="Home" />} />
+        <Route path="/ecg" element={<ECG title="ECG" />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/none" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
-
-export default App;
