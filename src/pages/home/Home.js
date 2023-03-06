@@ -1,23 +1,45 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login, logout } from "../../redux/user";
+import { changeColor } from "../../redux/theme";
 
 import styles from "./Home.module.css";
 import "../../Components.css";
 import { AiFillQuestionCircle } from "react-icons/ai";
 
-import { useEffect } from "react";
-
 export default function Home() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(window.history);
+
     return () => {};
   }, []);
 
   const handleAbout = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // navigate("/about");
+    // navigate("/about", { replace: true }); // REPLACE, redirect
+    // window.open("about:blank", "_self");
+    // window.close();
+  };
 
-    navigate("/about");
+  const handleLogin = (e) => {
+    console.log(e.target.dataset);
+
+    dispatch(login({ name: "jsh", age: 41, email: "jsh@naver.com" }));
+
+    dispatch(changeColor("blue"));
+  };
+
+  const handleLogout = (e) => {
+    console.log(e.target.dataset);
+
+    dispatch(logout());
+
+    dispatch(changeColor("green"));
   };
 
   return (
@@ -38,7 +60,8 @@ export default function Home() {
         </div>
       </main>
       <footer className={styles.footer}>
-        <AiFillQuestionCircle className="image-button" size="64" onClick={handleAbout} />
+        <AiFillQuestionCircle data-role="login" className="image-button" size="64" onClick={handleLogin} />
+        <AiFillQuestionCircle data-role="logout" className="image-button" size="64" onClick={handleLogout} />
       </footer>
     </div>
   );

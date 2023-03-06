@@ -13,7 +13,7 @@ const Intro = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       console.log("setTimeout");
-      navigate("/");
+      navigate("/", { replace: true });
     }, 3000);
 
     return () => {

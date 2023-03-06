@@ -1,4 +1,6 @@
-import React from "react";
+import { useEffect } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -24,7 +26,7 @@ const HEADER = styled.span`
   font-size: 3rem;
 `;
 
-const LINK = styled.a`
+const LINKER = styled.span`
   text-decoration: none;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -45,11 +47,28 @@ const LINK = styled.a`
 `;
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // window.history.replaceState("/", null);
+
+    console.log(window.history);
+
+    return () => {};
+  }, []);
+
   return (
     <CONTAINER>
       <CONTENTS>
         <HEADER>404 Not Found</HEADER>
-        <LINK href="/">Go to Home</LINK>
+        <LINKER
+          onClick={(e) => {
+            navigate("/", { replace: true });
+
+            // window.history.go(-1);
+          }}>
+          Go to Home
+        </LINKER>
       </CONTENTS>
     </CONTAINER>
   );
