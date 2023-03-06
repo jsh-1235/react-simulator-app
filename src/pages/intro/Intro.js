@@ -14,7 +14,7 @@ const Intro = () => {
     const timer = setTimeout(() => {
       console.log("setTimeout");
       navigate("/");
-    }, 1000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
