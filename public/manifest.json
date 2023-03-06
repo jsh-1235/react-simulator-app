@@ -13,7 +13,11 @@
   "orientation": "any",
   "display": "standalone",
   "display_override": [
-    "standalone"
+    "standalone",
+    "fullscreen",
+    "minimal-ui",
+    "browser",
+    "window-controls-overlay"
   ],
   "prefer_related_applications": true,
   "theme_color": "#03a9f4",

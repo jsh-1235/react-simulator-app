@@ -8,7 +8,7 @@
 
 .header {
   height: 20vh;
-  background-color: #0277bd;
+  background-color: #32cbff;
   font-size: 2rem;
   line-height: 20vh;
   text-align: center;
@@ -33,7 +33,7 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-color: #4527a0;
+  background-color: #00a5e0;
   font-size: 2rem;
 }
 
@@ -44,13 +44,13 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-color: #512da8;
+  background-color: #89a1ef;
   font-size: 2rem;
 }
 
 .footer {
   height: 10vh;
-  background-color: #673ab7;
+  background-color: #ef9cda;
   font-size: 2rem;
   line-height: 10vh;
   text-align: center;
@@ -64,7 +64,7 @@
 
 @media(hover: hover) and (pointer: fine) {
   .footer>a:hover {
-    color: orange;
+    color: #fecef1;
   }
 }
 
