@@ -11,7 +11,7 @@
   "scope": "/",
   "start_url": "/",
   "orientation": "any",
-  "display": "browser",
+  "display": "standalone",
   "display_override": [
     "standalone"
   ],
