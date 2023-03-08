@@ -19,9 +19,11 @@ export default function Home() {
   }, []);
 
   const handleAbout = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+
     // navigate("/about");
-    // navigate("/about", { replace: true }); // REPLACE, redirect
+    navigate("/about", { replace: true }); // REPLACE, redirect
+
     // window.open("about:blank", "_self");
     // window.close();
   };
@@ -60,6 +62,7 @@ export default function Home() {
         </div>
       </main>
       <footer className={styles.footer}>
+        <AiFillQuestionCircle data-role="about" className="image-button" size="64" onClick={handleAbout} />
         <AiFillQuestionCircle data-role="login" className="image-button" size="64" onClick={handleLogin} />
         <AiFillQuestionCircle data-role="logout" className="image-button" size="64" onClick={handleLogout} />
       </footer>
